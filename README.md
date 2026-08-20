@@ -30,3 +30,16 @@ number generator based on the current date so everyone gets the same puzzle.
 ## Tech
 
 Plain HTML, CSS, and vanilla JavaScript — no dependencies, no build tools.
+
+```
+index.html              markup shell
+css/styles.css          all styling
+js/words.js             3- and 4-letter word lists
+js/puzzle-engine.js     graph utilities, seeded RNG, puzzle generation
+js/app.js               game state, rendering, event handling, boot
+```
+
+The JS files are loaded as plain `<script>` tags (no modules, no bundler),
+so `js/words.js` → `js/puzzle-engine.js` → `js/app.js` must stay in that
+order in `index.html` since each one relies on globals defined by the
+previous file.
